@@ -698,5 +698,33 @@
   </div>
 </details>
   </main>
+   </main>
+  <div id="imgModal" class="img-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImg" alt="">
+</div>
+
+<script>
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".close-modal");
+
+  document.querySelectorAll(".gallery-card img, .outfit-card img").forEach(img => {
+    img.addEventListener("click", function () {
+      modal.style.display = "flex";
+      modalImg.src = this.src;
+    });
+  });
+
+  closeBtn.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  modal.onclick = (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
 </body>
 </html>
